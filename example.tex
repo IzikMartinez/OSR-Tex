@@ -1,74 +1,791 @@
-\documentclass[10pt,twoside,twocolumn]{article}
-\usepackage[bg-letter]{dnd} % Options: bg-a4, bg-letter, bg-full, bg-print, bg-none.
-\usepackage[ngerman]{babel} % Trennungsregeln und autom. Überschriften in n. dt. RS
+\documentclass[a5paper,11pt,twoside]{book}
 \usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[a5paper, margin=1.9cm]{geometry}
+\usepackage[svgnames]{xcolor}
+\usepackage{fontspec}
+\usepackage{fancyhdr}
+\usepackage{lettrine}
+\usepackage{psvectorian}
+\usepackage[center]{titlesec}
 
-% Start document
+
+
+%Header and footer stuff
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[CE,CO]{\leftmark}
+\fancyfoot[CE,CO]{\thepage}
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{1pt}
+
+
+%format text and paragraphs
+\setmainfont{EB Garamond 08 Regular}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+
+%Chapter Formatting
+\renewcommand{\thechapter}{\Roman{chapter}}
+\titleformat{\chapter}[display]
+	{\bfseries\Large}
+		{\begin{center}
+			 %\MakeUppercase{\chaptertitlename}
+		%{\centering\Huge\thechapter}
+		\end{center}}
+	{0ex}
+	{{
+	\begin{center}
+		\psvectorian[width=15em, color=Black]{83}
+	\end{center}}
+		\vspace{0ex}%
+		\filcenter}
+
+
+%Section formatting
+\titleformat{\section}[runin]
+	{\normalfont\bfseries}
+	{\S\ \thesection.}{.5em}{}[.---]
+\titlespacing{\section}
+	{\parindent}{1.5ex plus .1ex minus .2ex}{0pt}
+
+
+
+% Starred variant
+\titleformat{name=\section,numberless}[runin]
+	{\normalfont\bfseries}
+	{\S\ }{.5em}{}[.---]
+
+%\titlespacing{name=\section,numberless}
+%	{\parindent}{1.5ex plus .1ex minus .2ex}{0pt}
+
+
+%Functions
+\newcommand{\EncounterText}[1]{
+	{\color{DarkSalmon} \textbf{#1}}
+}
+\newcommand{\MapText}[1]{
+	{\color{DarkCyan} \textbf{#1}}
+}
+\newcommand{\QuoteText}[1]{
+	{\color{Black!80} {\fontspec{Gotham-Book}\small#1}}
+}
+
+%Big first letter function
+\newcommand{\firstLetter}[1]{\lettrine[loversize=0.3,
+lines=3,
+slope=-0.1em,
+nindent=5pt,
+lhang=0.35]{#1}
+}
+
 \begin{document}
-\fontfamily{ppl}\selectfont % Set text font
 
-% Your content goes here
 
-\section{Main Section}
-\lipsum[1] % filler text
+\chapter{Jacob's Well}
 
-\subsection{Fun with boxes}
-\subsubsection{Even more fun!}
 
-\begin{commentbox}{Neat Green Box!}
-	\lipsum[1]
-\end{commentbox}
+\textit{I was buying some dog food the other day when I noticed a display of Sigourney-Weaver—flavored alien chow.
+I immediately thought, ‘There’s an idea.'
+While this module may not be to everyone’s taste, the little frontier fort and its NPCs can be used in toto for an adventure of the DM’s own design.
+After all, adventures serve several functions besides just being adventures.
+They generate ideas, provide NPCs, and supply locales and treasures.
+And the good ones are just plain fun to read!}
+\firstLetter{J}acob’s Well is an OSR adventure for one Game Master and one player.
+The PC may be of any class or alignment, but should be of levels 2--4.
+A 2nd- level PC should have above-average ability scores, especially Constitution and Strength.
+The adventure can be located in any cold, forested Wilderness.
+Those GMs not wishing to use the adventure verbatim may still find the trading post called Jacob’s Well a convenient safe haven to drop into any Wilderness area.
 
-\begin{quotebox}
-	As you approach this template you get a sense that the blood and tears of many generations went into its making. A warm feeling welcomes you as you type your first words.
-\end{quotebox}
+This adventure uses a “Sequence of Events” rather than set encounters.
+The DM should become thoroughly familiar with the layout of the trading post, the many NPCs, the creature used in the scenario, and the “Sequence of Events” before running the module.
+\section*{Before Play}\label{sec:jacob's-well}
 
-\newpage % Acts as columbreak because of twocolumn option; for pagebreak use \clearpage
+	Before play begins, decide Why the PC is traveling alone.
+	Perhaps he is the forward scout or trailblazer of his party, marking a path for the others to follow.
+	The PC may have become separated from his group and is lost.
+	He may be on a quest or returning from a one.
+	Whatever the case, the PC is far from any known shelter and fleeing before an oncoming winter storm.
+	It doesn't take a ranger to figure out that the boiling
+	black clouds and howling north wind mean trouble.
+	Struggling desperately through the trees, the PC stumbles into an open glade.
+	The welcome smell of wood smoke drifts on the wind, and the
+	traveler can see the comfort of a light	ahead.
 
-\begin{dndtable}
-   	\textbf{Table head}  & \textbf{Table head} \\
-   	Some value  & Some value \\
-   	Some value  & Some value \\
-   	Some value  & Some value
-\end{dndtable}
+\section*{Background}\label{sec:for-the-game-master}
+The PC has stumbled onto a small fortified trading post named Jacob’s Well.
+No one remembers who originally dug the well, but the site has been (at various times over the past 100 years) a logging camp, a fur trappers’ camp, and an Orc encampment.
+For the past several years it has been a trading post in the hands of a half-Orc named Jacob and has come to be called Jacob’s Well.
+It is used primarily by fur trappers and occasionally by adventuring parties, as it is the only sign of civilization for many miles.
 
-\begin{paperbox}{Do the Players need direction?}
-	\lipsum[1]
-\end{paperbox}
+The comfort and welcome of Jacob’s Well will soon turn very cold indeed.
+The PC’s fate has led him to the little fort just in time to be involved in the horrors about to unfold there.
+One of the other guests is the unwitting host of a baby red slaad.
+If the PC stays at the trading post, he may witness the terrible aftermath of the birth of a red slaad and may have to choose between risking death by winter storm or the creature’s hunger.
+While the winter storm keeps the patrons trapped in the trading post, the newborn slaad stalks the compound and survival becomes a hard-won and precious commodity.
 
-\begin{monsterbox}{Monster Foo}
-	\textit{Small metasyntatic variable (golbinoid), neutral evil}\\
-	\hline
-	\basics[%
-	armorclass = 12,
-	hitpoints  = 16 (3d8 + 3),
-	speed      = 50 ft
-	]
-	\hline
-	\stats[
-	STR = 12 (+1),
-	DEX = 14 (+2)
-	]
-	\hline
-	\details[%
-	% If you want to use commas in these sections, enclose the
-	% description in braces.
-	% I'm so sorry.
-	languages = {Common Lisp, Erlang},
-	]
-	\hline \\[1mm]
-	\begin{monsteraction}[Monster-super-powers]
-		This Monster has some serious superpowers!
-	\end{monsteraction}
-	\monstersection{Actions}
-	\begin{monsteraction}[Generate text]
-		This one can generate tremendous amounts of text! Though only when it wants to.
-	\end{monsteraction}
+\pagebreak
+\section*{About NPCs} During the course of this adventure, the DM is free to move the NPCs anywhere he wishes, so long as they are where they are supposed to be when the narrative text is read.
+The primary location for any NPC will be either the \MapText{Main Hall (Area 8)} or one of the inn bedrooms.
+The DM may find it easier to keep track of the location of the many NPCs if he uses miniatures, tokens, or small pieces of paper marked with the NPCs’ initials.
+However, the PC should not be privy to this information.
+The sudden removal of an NPC from the map may give away information before the DM wishes.
 
-	\begin{monsteraction}[More actions]
-    See, here he goes again! Yet more text.
-	\end{monsteraction}
-\end{monsterbox}
+Ideas for defense or hunting the creature should come primarily from the PC, who should be encouraged to actively search out the slaad.
+If the PC waits for the slaad to come to him, he will have a long wait and will then be faced with a powerful creature.
+However, several of the NPCs can recommend common-sense tactics, such as always moving about in pairs, everyone sleeping in the main hall, etc.
+The alignment of the NPC offering suggestions is important, as most of the NPCs are more interested in their own survival than the group's.
+An NPC (especially the Orc chief Tonazk and Jacob) may wish to use someone else as monster—bait and will not be overly concerned with the bait's survival.
+
+\section*{Creating Tension}It is important to remember and use the thief-like abilities of the slaad.
+Any survivors of a slaad attack will stress how the thing came up silently and suddenly lunged out of the shadows.
+To create a mood of paranoia and fear, the DM need only use a few rat or snow slide encounters (see “Jacob’s Well Encounters”).
+A giant rat can suddenly jump on the PC while an NPC screams, “It’s on your back!
+It’s on your back!” A large amount of snow suddenly sliding off the roof can momentarily pin the PC face down on the ground.
+While pinned under the heavy snow, the PC lies helpless as he hears something approach.
+Luckily, it is only an NPC come to help him (this time).
+Such minor incidents can be effective in creating the proper atmosphere.
+As the adventure progresses, a rat scuttling through a shadowy corner may illicit a major over-reaction from the PC.
+
+\section*{The Slaad's hiding places} The slaad may hide in the main house chimney (baby slaad only), latrine, stable, smithy, the barracks (after they have burned), and any other place the DM deems an adequate hiding place (such as the guard posts after the guards abandon the fort; see “Day Two, Morning”).
+It is unlikely the slaad will attempt to hide in the courtyard well.
+Unlike the chimney, there is no escape for the slaad should it be discovered there.
+As the hunt for the slaad continues, it may be discovered in one of these hiding places.
+The slaad will not leave the fort, as the rapidly growing creature needs the population of Jacob’s Well for food.
+It is up to the DM to move the slaad once it is discovered, and the DM should plan the slaad’s next move should its current hiding place be rendered untenable.
+
+\section*{Sequence of Events }
+The action of this adventure takes place over a period of three days, divided into rough time periods of morning, evening, and night.
+These time periods are approximately eight hours each but are kept deliberately vague to allow the DM as much latitude as possible in the timing of a particular event.
+Thus, two events can happen in a short space of time, one late at night and the second early in the morning, or the same events can be separated by several hours.
+In this way, the DM can create the proper atmosphere of anticipation and suspense.
+The events taking place at Jacob’s Well revolve around a particular creature, a red slaad (see Bestiary).
+If the slaad is caught or killed, no further events take place.
+After the evening of Day One, the DM is free to rearrange events as he pleases, but care should be taken not to reveal too much too soon.
+Otherwise, the sense of mystery, menace, and imminent danger is greatly diminished.
+
+\chapter{Day 1}
+\section*{Morning: } The PC arrives at Jacob’s Well.
+\lettrine[loversize=0.3,
+lines=3,
+slope=-0.1em,
+nindent=5pt,
+lhang=0.35]{T}he DM is free to either describe the \MapText{Main Hall (Area 8)} and the NPCs there or to role-play the encounters.
+The DM may find it easier to role-play only one or two of the NPCs in the main hall and, through them, impart information concerning the others.
+In any case, the DM should emphasize the rules, as posted behind the bar, in order to discourage the PC from attempting to fight any of the other guests.
+
+If the PC insists on fighting, Jacob instantly and unhesitatingly opens fire with his crossbows.
+The PC must kill or subdue both his opponent and Jacob to survive.
+If the PC survives such a fight, the adventure can continue, but the PC is in a much weaker position.
+
+About an hour after the PCs’s arrival at Jacob’s Well, the storm hits with a vengeance.
+This wild and unpredictable winter gale sweeps over the area of Jacob’s Well with heavy snow and high winds (see roll of 31--80 on weather chart below).
+Unless otherwise indicated, the DM can determine the exact weather conditions by rolling 1d100 and consulting the following chart:
+\vspace{2cm}
+\hline
+\textbf{\large01--30:} \quad Calm period of light to moderate snow and light to moderate winds.
+Missile fire and spell-casting have normal chances of success, and the storm causes no physical damage.
+For visibility, see “Fog, light or snow,” Table 62 on page 117 of the PH.
+This calm period lasts for 2--8 hours; then roll 1d100 again.
+\vspace{0.5em}
+\hline
+\textbf{\large31--80:} \quad Heavy snow, high wind.
+All missile fire is at -2 and reduced to half normal range, 50\% chance of spell failure due to buffeting wind.
+Visibility is treated as “Fog, moderate” on Table 62 (as above).
+Anyone venturing out into the storm takes 2 hp damage per hour regardless of protective clothing.
+Shelter {this includes the guard posts and stable), natural immunity (such as that of a frost giant), or magical protection negates the damage.
+These weather conditions last for 2—8 hours.
+\vspace{0.5em}
+\hline
+\textbf{\large81--00:} \quad Blizzard conditions of very heavy snow and very high wind.
+Missile fire impossible, 80\% chance of spell failure due to buffeting wind.
+Visibility is treated as “Fog, dense or blizzard” on Table 62 (as above) and the damage caused by the storm increases to 3 hp per hour.
+These conditions last 1—4 hours.
+\vspace{0.5em}
+\hline
+
+The DM is free to choose the current weather and to lengthen or shorten the duration of any weather condition.
+However, care should be taken to avoid prolonged periods (24 hours or more) of any particular type.
+There should be at least one calm period and one blizzard in every 24 hours.
+If these do not occur randomly, the DM should insert them.
+\pagebreak
+
+\section*{Evening: } Everyone is in the \MapText{Main Hall (Area 8)} eating, drinking, talking, or merely listening to the storm outside.
+Jacob is at the bar serving drinks, Ubbi is in the kitchen singing some obscene sea chantey to himself, and Begley is bustling about serving food and drinks to the patrons.
+
+\QuoteText{
+It feels good to have food on the table and walls between you and the wind.
+The roaring fire in the fireplace and sputtering torches on the walls throw fantastical shadows about the room.
+As the little Halfling serves your food, his shadow seems to waltz through a kaleidoscope of red and yellow light.}
+
+\QuoteText{There is the soft murmur of quiet talk among the patrons, and occasional snatches of singing from the kitchen.
+The air in the room is warm and wood scented.
+It is almost cozy, and several guests nod drowsily over their tankards and mugs.}
+
+\QuoteText{Suddenly, everyone is sitting bolt upright.
+From upstairs comes such an anguished scream of agony and terror that the very sound of it is painful to hear.
+The scream echos for several minutes.
+It makes your hair stand on end and your flesh crawl.}
+
+\QuoteText{Just as suddenly as it began, the scream stops.
+Everyone is now standing, looking at the top of the stairs.
+A smashing crash, like the sound of glass and wood giving way all at once, is followed by the thud of something hitting the ground outside.
+Then the only sounds are the crackling of the fire and the howling of the storm.}
+
+\QuoteText{The two barbarians are the first to shake off the paralyzing effect of the scream.
+With a great shout of, “Njal! Njal, we are coming!” the two barbarians run up the stairs, with Gaylord and Drenla close behind.
+The guard \MapText{Upstairs (Area 1)} begins shouting for Jacob, who comes out from behind the bar with his heavy crossbow.}
+
+\QuoteText{Jacob orders Ubbi and Begley to look after the bar, then heads upstairs Chief Tonazk sends Ax upstairs to investigate but he and Kazickerk remain in the main hall.
+The fur tappers remain in the main hall as well.}
+
+The PC is free to either go upstairs to investigate the scream or remain behind in the main hall.
+If the PC attempts to pick the lock or enter the room behind the bar, Ubbi and Begley inform Jacob (if he doesn’t know already from the sound of the clanking cowbell), and the PC is dealt with summarily as a thief.
+If the PC or an NPC investigates the thud heard outside, he finds one of the upstairs window shutters in the courtyard.
+If the PC does not go upstairs, Jacob returns after a few minutes and describes the scene.
+If the PC goes upstairs, he sees the following in the \MapText{Barbarian’s Room (Area 25)}: There are several people huddled around a doorway, attempting to see into the room.
+
+As you push your way to the front, you see the two barbarians standing grief stricken in the center of the room.
+A third barbarian, the one called Njal, is definitely dead.
+His face is frozen in a terrible mask of fear and pain.
+Most horrible of all, his  window has been smashed.
+One wooden shutter 1s loose and banging loudly 1n the wind, the other shutter lies in the courtyard below.
+The arctic wind is blowing ferociously through the opening and filling the room with ice-cold air and snow.
+Jacob turns on the upstairs guard and demands, “What in the name of wonder happened here?” The guard replies, “I gets no ideer.
+I come a-runnin’ when I heard that awful scream.
+I found the room like you sees it.” Jacob merely shrugs, orders the nervous guard back to his post, and tries to reassure his patrons.
+“Whatever it.
+was, it’s gone now.
+I wish it wouldn’t of smashed my windows.” With hardly a glance to spare for the barbarians, Jacob turns and tromps down the stairs to the main hall.
+The barbarians soon recover their composure and ask everyone else to leave.
+They refuse all help with the body and do not allow anyone to inspect the corpse or even touch their fallen comrade.
+After gently stretching their friend out on a mattress, they begin softly chanting the burial songs of their people.
+Gaylord has been examining the corpse from a distance and notes the wound is unusual.
+He points out several major organs, namely the heart and lungs, appear to be missing.
+But, without being able to closely inspect the body he is not certain, so he too merely shrugs and returns to the main hall.
+Guards from the other posts have arrived downstairs, and Jacob asks if they saw 01 heard anything.
+None of the guards admit to seeing anything, due to the blowing snow.
+They all say they heard nothing but a scream and a window being smashed.
+Jacob orders them back to their posts with the command, “Keep your eyes open! Something unfriendly’s loose.” He then brings up a hammer, nails, and boards from the cellar and orders Ubbi and Begley to board up the damaged window.
+This terrible scene began three  chest has been literally ripped open and the room is awash in gore.
+Whatever did this deed left via the window.
+There is a trail of blood from the corpse to the window sill, and the  months earlier when Njal was searching for a cache of magical weapons rumored to be hidden near the shore of a subterranean lake.
+There he was surprised by a red slaad messenger on its way to a secret slaadi slave-taking  enclave.
+Because it dared not be killed or injured in a fight before the message get through, the slaad did not stay and fight the barbarian.
+It merely slashed Njal across the back and disappeared under the dark waters of the lake.
+The surprised barbarian was never sure what had attacked him and could tell his friends only that a large manlike thing with a big head delivered the wound to his back.
+The barbarians are therefore unable to identify or recognize the slaad loose in Jacob’s Well as the same type of creature who attacked Njal months earlier.
+The slaad’s attack on Njal implanted an egg-pellet.
+The horror in the upstairs room is the gory aftermath of the birth of a red slaad.
+It is new roaming hungry and free through the trading post (for encounters with the creature, use the statistics for a baby red slaad).
+After smashing through the window, the newborn slaad did not jump to the ground, but rather swung itself up onto the roof.
+If the ground under the window is inspected, anyone can see that only bits of broken glass and window frame can be found in the snow.
+Even if the blowing snow covered the creature’s tracks, there should at least be an indentation where the creature hit the ground.
+However, as no one is yet sure if the creature broke into or out of the room {or even if there really is a creature), such evidence may not be immediately meaningful.
+The slaad regenerates hit points faster than the winter storm can deliver damage, so it is not at risk of freezing to death.
+However, it finds the cold uncomfortable, and it also prefers to stay out of sight.
+After leaving the barbarians’ room via the roof, it hides in the chimney of the main hall fireplace.
+Its strong claws are fastened securely to the rough stones of the chimney, and it hangs just inside the mouth, warmed by the rising smoke but not suffocated by it.
+The kitchen scullery chimney is too small to be used by the slaad.
+If the PC ventures onto the steep roof of the main house, he must make a Dexterity check every round or lose his footing and fall off the roof for 2d6 hp damage.
+Dexterity checks are made by rolling Dexterity or less on 1d20 with a penalty of 1 for light to moderate snow conditions, *2 for heavy snow conditions, or 3 for blizzard conditions.
+N o NPC is willing to attempt such dangerous rooftop exploits.
+ The baby slaad need not make Dexterity checks.
+It anchors itself with its claws while it wriggles along.
+If the PC makes it to the chimney, there is a 95\% chance to discover the slaad.
+If discovered, it simply drops into the fire below, taking 2d8 hp damage from the fall and the fire.
+It then flees the main hall via the door or by smashing through a window and hides somewhere in the compound {see “For the Dungeon Master” for probable locations).
+The creature’s actions (falling into the fire, running for the door, or smashing through a window) surprise everyone in the main hall, and they are unable to pursue for two rounds.
+Gaylord Hightor [or the PC, if he too is a ranger or has a tracking proficiency] may attempt to track the slaad, but due to the storm he does so with a heavy penalty.
+For tracking attempts use Table 89 on page 64 of the PH.
+The following modifiers always apply for every tracking attempt throughout this adventure: “Poor lighting” (due to the storm) and “Tracked party attempts to hide trail” (the slaad does not attempt to hide its tracks, but the heavy snowfall and windblown snow induce this penalty).
+The DM can consult Table 39 for other bonuses and penalties as applicable.
+The barbarians are soon finished honoring their fallen comrade and begin a revenge—minded room-by-room search of the trading post.
+They have angry words with Jacob because he refuses to allow them in the cellar.
+He points out he has just been in the cellar and nothing is there.
+He also demonstrates, by opening the deer, that if anything had entered the cellar, they would have heard the clanking cowbell on the back of the door.
+This mollifies the barbarians’ suspicions, and they carry their search outside to the courtyard, stable, and other areas of the trading post.
+Finding nothing, they eventually return to the main hall, where they sit in a corner sulkily drinking mugs of beer.
+Meanwhile, the other guests have been excitedly talking among themselves.
+Virtually everyone has made a thorough search of the upstairs.
+The only things found are empty rooms and the barbarian’s fur wrapped corpse placed on a mattress under the now-boardedup window.
+Whatever killed the barbarian has disappeared  Everyone in the main hall has a theory on what happened.
+Chief Tonazk believes the man was killed by some mysterious curse.
+Drenla, the fur trappers, Ubbi, and Begley believe something broke into the room and killed the barbarian.
+Gaylord has no opinion, because the circumstances are so strange he just doesn’t know.
+The PC can believe or disbelieve any of the theories or propose a theory himself.
+But, unless the PC has had experience with slaadi, he should not know exactly what is happening.
+
+\section*{Night} Eventually, the excitement.
+over the awful event eases, and one by one the guests get sleepy and take a room (DM’s choice on who goes where.
+Chief Tonazk and his bodyguards use adjacent but separate rooms).
+Nothing unusual is seen or heard for the rest the night (unless the PC encounters the slaad).
+The wind and snow continue to batter the trading post.
+The heavy snowfall makes it impossible to tell time accurately.
+It is near sunrise, but still very dark, when the sounds of confused shouting come from the courtyard.
+As you rouse yourself from an uneasy sleep on the flea-infested mattress, one word is becoming clearer and clearer.
+“Fire!” If the PC stays in his room, Gaylord pounds loudly on the door as he rushes past, yelling, “Come help! Fire!” If the PC responds to the alarm and rushes downstairs, he sees that the guard barracks are burning.
+The barracks are alight from one end to the other.
+In the dark, tongues of flame peep out here and there, and a great sheet of flame blocks the doorway.
+Luckily, rapidly melting snow is raining down from the roof onto the flames.
+Judging from the small size of the crowd in the courtyard, few of those in the barracks got out.
+Jacob and the others have formed a bucket brigade from the well to the barracks and are rapidly dousing the building with water.
+Whether the PC helps or not, the fire is soon out, and only thick black smoke boils out the door of the barracks.
+The barracks and the tower (areas 4 and 12,) still stand, but the building has been  gutted by the fire.
+There is no longer anything of use in the barracks.
+Luckily, the keg of lamp oil in the barracks closet did not explode, though it burned intensely.
+There is now a hole in the eastern wall where the storage closet used to be (the DM should mark the hole’s location on the map at this time).
+The seven remaining guards make quick forays into the smoky interior and bring out the bodies of their companions.
+Only four bodies are found in the ruins; no guard or body is found in the barracks tower, nor any trace of where he went.
+However, an empty keg of lamp oil is found in the guard post, and the loose chimney stone used by the guards for warming their hands is lying near it.
+A quick inventory of the storage cubicles confirms the keg of lamp oil is the one stored with the metal-working implements.
+It is obvious that someone stole the oil and poured it directly into the chimney via the loose stone, deliberately killing the guards.
+Jacob is incensed at the news, and the other guards are grumbling loudly about it.
+Suspicion falls immediately on the missing tower guard.
+It appears he killed his fellows and has either escaped into the storm or is hiding somewhere in the compound.
+If anyone points out that the guard could not possibly have had anything to do with the barbarian’s death, Jacob’s response is, “One problem at a time, boys.
+Let’s solve this problem first!” Jacob tries to organize a thorough search of the entire compound.
+If the frightened PC convinces others to stay together in the main hall, the slaad contents itself with attacking a defenseless pack mule or horse.
+If a guard is not mounted in the stables, the animals are attacked and eaten one by one, and the slaadjs tracks in the stable after each attack grow larger.
+The baby or young slaad will not attack a group of more than three victims.
+If the search isn’t overruled, Jacob provides his guests with some help.
+At the storage cubicles, he unlocks \MapText{The Armory (Area 5)} and, with the understanding they must give it back when the emergency is over, allows everyone to choose an extra weapon or equip themselves with better armor if they need it.
+Shagath, Terth, and Xavick take suits of leather armor but arm themselves with their own hunting gear (treat as long bows with 20 flight arrows each).
+Ubbi chooses a short sword  and leather armor, and Begley chooses the mace {change all NPC statistics accordingly).
+Being sufficiently armed and armored, the barbarians, Orcs, ranger, and mage take nothing from the armory.
+If the PC is in need of weapons or armor, he is free to choose from those items listed that are appropriate for his race and class.
+With everyone armed and ready, the search begins in earnest.
+Jacob leaves a guard at each of the guard posts.
+After the fire, they no longer need orders to “Keep their eyes open.” The hunt continues through the compound, but nothing is found.
+Eventually, the only place left to search is the main house, and the hunters turn their attentions there.
+The slaad is responsible for burning the barracks, not the unfortunate missing guard.
+When the slaad got tired of hiding, it went in search of prey.
+Taking stock of Jacob’s Well, it decided there were just too many people to handle all at once.
+As it inspected the contents of the unlocked storage lockers, it found the lamp oil and formulated a plan to  eliminate several opponents in one blow.
+Climbing up the chimney on the southern end of the barracks, it surprised and killed the guard while he was warming his hands at the loose stone, and devoured the unfortunate man.
+As the floor of the guard post was covered with snow blown in by the storm, the few traces of blood were washed away as the snow melted in the heat of the fire.
+The slaad had intended to pour the oil directly down the chimney, but instead it used the hole so conveniently supplied by the guard.
+When the lamp oil hit the fire below, it immediately ign nited.
+The flaming oil gushed out of the fireplace and cut the guards off from the door.
+In a matter of minutes, the straw mattresses were alight and the guards were doomed.
+Immediately after emptying the keg, the slaad (under cover of the snowy darkness and using its abilities to move silently and hide in shadows), passed directly under the gate guards and hid between the main house and the western palisade.
+When the alarm sounded and the house emptied to fight the fire, the slaad slipped into the  kitchen and hid.
+itself under the sacks of potatoes in \MapText{The Scullery (Area 11)}.
+Use the slaad’s hide in shadows percentage {59\%) to determine whether the slaad is discovered.
+The DM may direct one or more NPCs to search the main house.
+The PC may search where he wishes, with the restriction that only Jacob is allowed in the cellar.
+If the slaad is discovered, it attempts to escape the main house and find another hiding place elsewhere in the compound (DM’s choice).
+If escape is impossible, it fights to the death.
+
+\chapter{Day Two}
+\firstLetter{M}orning: Everyone sits aloof, with thoughts turned inward.
+Yet all are alert, senses turned outward, straining to hear, see, or scent the slightest hint of danger.
+There is no talking except to occasionally order food or drink.
+Begley wanders about like a ghost, damned to forever serve the silent, sullen patrons.
+You shake off the drowsy warmth of the main hall and notice Begley is slowly descending the staircase with a puzzled look on his face.
+He looks about the room and asks, “Has anyone seen Ubbi?” There is a moment’s buzz of excitement as everyone states the location they last saw the old cook.
+Then in a flurry, the barbarians, the Orcs, the trappers, Gaylord, Drenla, Begley, and Jacob are up and looking.
+The upstairs, kitchen, scullery, and latrine are checked.
+Jacob even goes round the guard posts asking, but the guards have seen and heard nothing but snow and wind.
+Ubbi.
+has disappeared.
+The PC need not immediately jump up and look for Ubbi, though the NPCs will make an excited search for the cook.
+If the slaad was not found hiding under the potatoes on Day One, it has killed and devoured Ubbi as he was preparing lunch.
+If the slaad was driven from the kitchen, it surprised Ubbi in the latrine.
+In either case, Ubbi is gone forever.
+After killing Ubbi, the slaad is hiding in the \MapText{Smithy (Area 6)}.
+If discovered there, it attempts to retreat to the compound and another hiding place lDM’s choice).
+If trapped, the creature fights to the death.
+ Upon hearing the news of Ubbi’s disappearance, the remaining guards revolt.
+Jagger, a spokesman for the guards, announces, “That’s it.
+We’ve had enough.
+We’re leaving!” At this Jacob gets angry and shouts, “Leavingl? You dratted fools can’t go anywhere in this storm.
+You’ll die!” “You blasted half-breed!” Jagger shouts, “We’re not staying to die, just ’cause you’re afraid someone might drink a beer and not pay for it!” Jacob makes a move for his cross bow, but Jagger says, “You needn’t go for your crossbow, you bloody miser! You can put an arrow in my guts, but what about the rest of the boys? They’ll cut you down before you get a second shot of .” Jacob lowers the crossbow as the other guards cluster close behind their Spokesman.
+There follows a terrible argument with much cursing in both Common and Orcish, but the guards cannot be dissuaded.
+There are just too many for Jacob to fight, bully, or bribe.
+The guards turn over their crossbows and what few other weapons belong to Jacob, pack their belongings and depart.
+Before leaving, Jagger announces to the guests, “We’re taking our chances with the storm.
+At least we know what a storm is.
+You’re all welcome to join us.” Beyond the guards’ hearing, Gaylord whispers, “If these cutthroats will abandon their employer when he needs them, they will certainly abandon a stranger on the trail.” Upon hearing this, none of the patrons wishes to leave with the guards.
+The PC is free to join the guards and abandon the trading post if he wishes.
+The guards depart in heavy snow rapidly turning into a blizzard.
+If the PC leaves with the guards, they trek through the storm for about an hour, then the guards attack the PC and attempt to steal anything of value.
+If the PC survives this attack, see “Concluding the Adventure” for his chances of surviving the storm.
+The DM is free to choose the fate of the guards.
+If both the guards and the PC survive the storm, the DM has a ready-made future scenario.
+The PC can hunt down the guards, one by one, and seek retribution for their attack on him during  the storm.
+In the meantime, the guards may have made powerful friends or become powerful themselves.
+\section*{Evening} The departure of the guards has an unsettling effect on the patrons.
+With the number of inhabitants suddenly and drastically reduced, everyone is pondering which was the wisest choicestaying or going.
+Drenla and the fur trappers are upstairs, while the rest of the guests are in the main hall, which looks like an armed camp.
+Everyone is literally bristling with weapons.
+After the events of the day, the patrons and staff are jumpy, tired, and tense.
+The air is stifling and stale.
+Begley moves about the room serving food and drinks.
+His shadow no longer dances fantastically but stalks menacingly through a redyell ow nightmare.
+There is a sudden snow slide off the roof, louder than usual but nothing startling.
+The snow slides were unsettling at first, but as they increased in frequency, everyone soon recognised the sound and they ceased to be alarming.
+However, a muffled about from upstairs follows immediately after the snow slide.
+This time there is no hesitation, and everyone is up and running for the stairs in an instant.
+At the top of the stairs, you see the mage’s room is on fire.
+Drenla and the fur trappers furiously swat at the flames with blankets.
+The fire is quickly extinguished, for only the straw mattresses were alight.
+Everyone mills about the doorway, speculating on what happened and demanding explanations.
+Drenla is tight lipped on the matter, but Xavick, one of the fur trappers, was in the hallway and saw what happened.
+He explains that he was heading back to his room when he heard the snow slide.
+Apparently, the mage was unnerved by the noise and thought he was under attack.
+He came running out into the hallway, turned, cast a flaming sphere spell, and sent the sphere rolling back into his room.
+The sphere immediately set the mattresses on fire.
+Realizing his mistake, the mage grabbed a blanket and shouted for Xavick to help.
+Jacob is not amused and gives Drenla a cold stare.
+“As if I don’t have enough troubles,” he sneers, “now you’re trying to burn down my business!” Then he  stalks off downstairs.
+The Orcs are speaking to each other in Orcish.
+Suddenly Chief Tonazk looks directly at Drenla and says “kyaka.” At this remark, the two bodyguards guffaw loudly and the three follow Jacob.
+If asked to translate, Jacob can tell the PCs that “kyaka” has no direct translation from Orcish to Common, but refers to someone stupid and clownish, someone to be made fun of and not to be respected.
+
+\section*{Night} The snow slides continue, and there is an occasional jest at Drenla’s expense.
+Begley is in the kitchen cooking.
+Gaylord has the kitchen door propped open with a chair so he can keep an eye on the halfling.
+Everyone is still tense but resigned to the fact the guards are gone and the storm is staying.
+As the night wears on, Tonazk eats, then retires upstairs.
+The Orc chief, with his private bodyguards, appears to have few worries about what is happening at the fort.
+As the other patrons retire for the night, they pass Ax standing guard before the chief’s door.
+The door to the adjoining room is open, and Kai zickerk is asleep on a straw pallet within.
+As the long night passes, the two guards take the boring, silent i watch in turns.
+If the PC is in his room or in the main hall, read the following aloud.
+If the PC is elsewhere, paraphrase the narrative text, using one of the NPCs who is upstairs as a witness to these events.
+There is the sound of a snow slide, but it lasts far too long and is followed by the famiiiar sound of smashing wood and glass.
+Ax gives a great shout.
+The bodyguard is standing in the hallway, blaspheming the way only an Orc can.
+As the other guests open their doors, weapons in hand, they see a strange creature there in the hallway.
+The thing is dark mottled gray in the flickering torchlight, with a fearsome set of claws, a large head and mouth, and a long tail.
+It is arched up over the fallen, headless body of Kazickerk like a python about to strike.
+Ax leans against the wall.
+His sword arm looks nearly severed, but his string of invectives has not slowed.
+ Chief Tonazk is one of the first to open his door, but even he is not fast enough to attack the creature.
+The monster immediately drops and wriggles in a rush, away from its fallen prey and out of the open walkway door in the southern hall.
+Tonazk gives chase, but the thing is gone into the blowing snow before he Eran comes close.
+ The slaad used its climb-walls ability to scale the chimney on the northern side of the main house.
+It then wriggled across the roof, chose a room at random, swung over the eaves, ripped the shutters off, and crashed in through the window.
+Kazickerk never had a chance.
+He was able to make it into the hallway, but the slaad was on him before he could even draw his weapon.
+It took the Orc’s head off in a single bite, then turned to attack the shouting Ax.
+Ax made a wild swing at the creature but missed, and the slaad hit.
+his sword arm, leaving the are unable to strike or defend himself.
+Luckily, doors started opening and the creature immediately abandoned the fight.
+ If Ax receives immediate treatment for his arm (including a care light wounds spell from Begley}, he does not bleed to death.
+However, if he survives, his Strength is reduced to 5 and he has lost 10 hp.
+‘While he is able to wield a weapon with his shield arm, he does so with a -4 penalty to attack and damage rolls due to lack of Strength, pain, and the awkwardness of using the untrained arm.
+Gaylord (or the PC, if he has tracking proficiency) can tell the creature did not use the walkway to the palisades, but has swung or jumped to the ground instead.
+The spot where the creature landed can be found easily, but figuring out where it went requires a tracking proficiency check.
+The slaad suffers ldd hp falling damage, but regenerates it within an equal number of rounds.
+After swinging down from the second story, the slaad rushes along the southern palisade, past the gates, and enters the burned-out hulk of the barracks through the hole in the eastern wall.
+Once inside the smoky barracks, the slaad begins a slow transformation from baby to young slaad.
+The creature begins molting thin pieces and hunks of skin (about 5 lbs.
+worth, see sidebar for  Chief Tonazk is one of the first to open his door, but even he is not fast enough to attack the creature.
+The monster immediately drops and wriggles in a rush, away from its fallen prey and out of the open walkway door in the southern hall.
+Tonazk gives chase, but the thing is gone into the blowing snow before he Eran comes close.
+ The slaad used its climb-walls ability to scale the chimney on the northern side of the main house.
+It then wriggled across the roof, chose a room at random, swung over the eaves, ripped the shutters off, and crashed in through the window.
+Kazickerk never had a chance.
+He was able to make it into the hallway, but the slaad was on him before he could even draw his weapon.
+It took the Orc’s head off in a single bite, then turned to attack the shouting Ax.
+Ax made a wild swing at the creature but missed, and the slaad hit.
+his sword arm, leaving the are unable to strike or defend himself.
+Luckily, doors started opening and the creature immediately abandoned the fight.
+ If Ax receives immediate treatment for his arm (including a care light wounds spell from Begley}, he does not bleed to death.
+However, if he survives, his Strength is reduced to 5 and he has lost 10 hp.
+‘While he is able to wield a weapon with his shield arm, he does so with a -4 penalty to attack and damage rolls due to lack of Strength, pain, and the awkwardness of using the untrained arm.
+Gaylord (or the PC, if he has tracking proficiency) can tell the creature did not use the walkway to the palisades, but has swung or jumped to the ground instead.
+The spot where the creature landed can be found easily, but figuring out where it went requires a tracking proficiency check.
+The slaad suffers ldd hp falling damage, but regenerates it within an equal number of rounds.
+After swinging down from the second story, the slaad rushes along the southern palisade, past the gates, and enters the burned-out hulk of the barracks through the hole in the eastern wall.
+Once inside the smoky barracks, the slaad begins a slow transformation from baby to young slaad.
+The creature begins molting thin pieces and hunks of skin (about 5 lbs.
+worth, see sidebar for  information on molted skin).
+Even though the slaad is perfectly motionless, it appears to be doing heavy labor.
+Its muscles bulge, relax, and reshape themselves beneath the creature’s skin.
+Its color changes from murky gray to angry red.
+There is no set time limit for how long this transformation takes, though it seldom takes less than one hour or more than six.
+The DM is free to use a time period that best suits the adventure, or roll ldEi for the number of hours the slaad takes to complete its change.
+The slaad does not leave the barracks until the change is complete.
+If discovered, it fights to the death.
+However, while undergoing this minor metamorphosis, the creature is vulnerable.
+It is unable to move quickly, and all attack and damage rolls are made at ..
+1.
+It automatically loses initiative and strikes last in every round until the transformation is complete.
+From the moment the transformation begins, the baby slaad’s thieflike abilities are reduced to those of a young slaad, but its regenerative properties and magic resistance are instantly raised to those of a young slaad.
+Use the young slaad statistics and hit points only after the transfermati on is complete.
+\chapter{Day Three} 
+
+\section*{Morning} \firstLetter{I}t was a rough night for everyone.
+Chief Tonask looks naked without his ever-present guards.
+Ax sits wrapped in a blanket, dosing in a chair.
+But life goes on, and food and drink are needed by the surviving guests.
+The clank of the cowbell behind the bar announces Jacob has gone downstairs for more beer.
+Begley stands on a mop bucket behind the bar and serves.
+From the depths of the cellar comes a shouted Orcish epithet, the sound of a crate of earthenware crashing to the floor, and a great deal of stamping about.
+Begley shouts, “It’s downstairs! It’s got Jacob!” Even as Begley is shouting, everyone is moving toward the door behind the bar.
+In fact, everyone has reacted so quickly there is a logjam at the door and no one can get through.
+Guntra gives a tremendous shove and a mighty pull and is suddenly free of the pack jammed in the doorway.
+Unfortunately, in his haste and effort to get through, he doesn't watch where  he is going.
+He lands awkwardly on the stair landing and tumbles backward down the stairs, skinning both elbows, barking both shins, and releasing a continuous and fluent string of cuss words on his way down.
+He lands flat on his back, looking up into the astonished face of Jacob.
+Jacob’s mouth is wide open and his eyes are staring as he suddenly erupts into gales of laughter.
+Guntra’s tumble down the stairs is the funniest thing he has ever seen.
+He is beside himself with laughter for a few minutes and is unable to answer questions.
+When Jacob finally gets the better of his mirth, he explains, “I just rousted a couple of rats.
+I don’t want ’em getting into bed with me, now do I?” He then gets angry because so many people have invaded his private domain and begins yelling, “Out! Out! Everybody out! You’ve no business down here.
+And don’t you be helping yourself to the liquor, Guntra.” For many hours afterward, Jacob remains alternately mirthful [looking at Guntra and chuckling to himself) and dour (glaring about the room and mumbling under his breath about people butting in where they’re not needed).
+Guntra, on the other hand, remains extremely annoyed and testy for several hours after his unintentional pratfall in the cellar.
+\section*{Evening} The patrons have grown hungry and are tiring in the fruitless search for the thing stalking them.
+They have settled in the main house for dinner and a rest.
+Begley is busy peeling potatoes.
+Gaylord watches him from the doorway between the main hall and kitchen.
+The others are sitting at tables waiting for a break in the weather.
+Hlutwulf goes upstairs for mattresses and blankets so he and Guntra can sleep near the fire.
+Drenla goes too, stating he wishes to retrieve his spell book.
+They are gone from view only a moment when a great shout erupts from the barbarian and Drenla is shouting, “It’s here! It’s here! We have it! We ha—” Even before the about of the barbarian has died, Chief Tonazk is up and running for the stairs.
+The death  of one of his bodyguards has hurt his pride, and he intends to make something or someone pay for it.
+He leaps up the stairs two and three at a time, waving a torch in each hand.
+Guntra follows close behind, his war hammer ready.
+At the top of the stairs, Hlutwulf is leaning against the eastern wall, a great gash clawed across his throat.
+Guntra stops and helps bind the wound before his companion bleeds to death.
+A great mass of sticky gray strands blocks the hallway.
+Entangled in the strands are Drenla and the creature.
+The thing looks something like a large bipedal frog, piebald red and pink in color.
+The huge mouth is full of impressive teeth, and its arms end in large, powerful~looking claws.
+The mage has managed to stick his dagger in the creature, but Drenla is obviously dead.
+The creature is pulling and heaving mightily at the sticky strands in an attempt to free itself.
+At each jerk and pull, Drenla’s body jumps and dances like a marionette on tangled strings.
+The mage’s head rolls to and fro at an odd angle, his neck broken.
+Tonazk rounds the top of the stairs and, without slowing down, charges headlong into the spectacle crying, “Bahgtru! Bahgtru aked kerkaznl” The Orc delivers a blow to the creature’s head with a torch, which sets the sticky strands alight.
+The mass of threads disappears with a sudden sizzling roar and the awful stench of burning flesh.
+Tonazk takes another swing with the torch, but he is too late.
+Freed, the creature dodges under the torch, claws the Orc chief as it passes, and is gone out the western walkway door into the blizzard.
+How the PC reacts to this depends greatly on where he is in when it happens.
+If the PC is in the main hall with the others, no matter how fast he reacts to the noise upstairs, Tonazk and Guntra react slightly faster and are up the stairs ahead of him {read the narrative text normally).
+If the PC is upstairs when the slaad makes its appearance, the DM can ignore the narrative text and run an encounter between the slaad and the PC.
+The DM might also distract the PC from the area by having a snow slide knock a shutter loose.
+When the PC  investigates the noise, Drenla and Hlutwulf start upstairs.
+In this case, the PC will be the first to arrive on the scene, but this will not stop Tonazk from running up the stairs and attacking with his torches.
+If the PC is somewhere else in the compound, it is up to the DM to determine what he is able to see, hear, or do about the situation.
+If the PC is upstairs when the slaad jumps from the doorway, he may attempt to follow if he wishes.
+The NPCs do not follow immediately but remain behind to take care of the dead and wounded.
+The slaad has not followed the walkway to the palisade but has jumped to the ground, taking 2 hp damage.
+In all, the slaad has lost 12 hp: 2 hp from Drenla’s dagger, 2 hp from being struck by the torch, 6 hp when the web burned, and 2 hp from jumping to the ground.
+Once on the ground, the creature runs to the burned-out barracks and enters the building through the hole in the eastern wall.
+If the PC jumps, roll ldS for the amount of damage taken from the fall.
+There is no guarantee the PC can follow the slaad.
+Unless the PC can keep the slaad in sight, is a ranger, or has tracking proficiency, there is only a 10\% chance the PC can follow the slaad’s trail.
+The heavy snowfall buries the tracks almost as fast as the creature makes them.
+If the PC is able to follow and enters the barracks through the hole in the eastern wall, he is immediately attacked by the slaad and suffers the loss of initiative for the first two rounds.
+If the PC uses the door in the western wall, initiative is rolled normally.
+If the PC uses the trapdoor in the barracks gnard \MapText{Tower (Area 12)} to enter the building, he surprises the slaad on 1—5 on 1d10.
+In any case, if discovered in the barracks, the creature fights to the death.
+If the PC does not follow the slaad, he may help with the wounded and fallen.
+Hlutwulf has taken a serious claw wound to the side of his neck.
+If Begley uses a care light wounds spell, the barbarian is saved and does not bleed to death.
+However, Hlutwulfs Strength is reduced to 3 due to loss of blood.
+He is unable to fight or defend himself and even needs assistance to walk.
+Once downstairs in the main hall, Hlutwulf regains enough strength to tell the story of the battle.
+The barbarian whispers in a dry voice, “As we turned  of one of his bodyguards has hurt his pride, and he intends to make something or someone pay for it.
+He leaps up the stairs two and three at a time, waving a torch in each hand.
+Guntra follows close behind, his war hammer ready.
+At the top of the stairs, Hlutwulf is leaning against the eastern wall, a great gash clawed across his throat.
+Guntra stops and helps bind the wound before his companion bleeds to death.
+A great mass of sticky gray strands blocks the hallway.
+Entangled in the strands are Drenla and the creature.
+The thing looks something like a large bipedal frog, piebald red and pink in color.
+The huge mouth is full of impressive teeth, and its arms end in large, powerful~looking claws.
+The mage has managed to stick his dagger in the creature, but Drenla is obviously dead.
+The creature is pulling and heaving mightily at the sticky strands in an attempt to free itself.
+At each jerk and pull, Drenla’s body jumps and dances like a mariov nette on tangled strings.
+The mage’s head rolls to and fro at an odd angle, his neck broken.
+Tonazk rounds the top of the stairs and, without slowing down, charges headlong into the spectacle crying, “Bahgtru! Bahgtru aked kerkaznl” The Orc delivers a blow to the creature’s head with a torch, which sets the sticky strands alight.
+The mass of threads disappears with a sudden sizzling roar and the awful stench of burning flesh.
+Tonazk takes another swing with the torch, but he is too late.
+Freed, the creature dodges under the torch, claws the Orc chief as it passes, and is gone out the western walkway door into the blizzard.
+How the PC reacts to this depends greatly on where he is in when it happens.
+If the PC is in the main hall with the others, no matter how fast he reacts to the noise upstairs, Tonazk and Guntra react slightly faster and are up the stairs ahead of him {read the narrative text normally).
+If the PC is upstairs when the slaad makes its appearance, the DM can ignore the narrative text and run an encounter between the slaad and the PC.
+The DM might also distract the PC from the area by having a snow slide knock a shutter loose.
+When the PC  investigates the noise, Drenla and Hlutwulf start upstairs.
+In this case, the PC will be the first to arrive on the scene, but this will not stop 'Tonazk from running up the stairs and attacking with his torches.
+If the PC is somewhere else in the compound, it is up to the DM to determine what he is able to see, hear, or do about the situation.
+If the PC is upstairs when the slaad jumps from the doorway, he may attempt to follow if he wishes.
+The NPCs do not follow immediately but remain behind to take care of the dead and wounded.
+The slaad has not followed the walkway to the palisade but has jumped to the ground, taking 2 hp damage.
+
+In all, the slaad has lost 12 hp.
+2 hp from Drenla s dagger, 2 hp from being struck by the torch, 6 hp when the web burned, and 2 hp from jumping to the ground.
+Once on the ground, the creature runs to the burned-out barracks and enters the building through the hole in the eastern wall.
+If the PC jumps, roll ldS for the amount of damage taken from the fall.
+There is no guarantee the PC can follow the slaad.
+Unless the PC can keep the slaad in sight, is a ranger, or has tracking proficiency, there is only a 10\% chance the PC can follow the slaad’s trail.
+The heavy snowfall buries the tracks almost as fast as the creature makes them.
+If the PC is able to follow and enters the barracks through the hole in the eastern wall, he is immediately attacked by the slaad and suffers the loss of initiative for the first two rounds.
+If the PC uses the door in the western wall, initiative is rolled normally.
+If the PC uses the trapdoor in the barracks guard \MapText{Tower (Area 12)} to enter the building, he surprises the slaad on 1—5 on 1d1I}.
+In any case, if discovered in the barracks, the creature fights to the death.
+If the PC does not follow the slaad, he may help with the wounded and fallen.
+Hlutwulf has taken a serious claw wound to the side of his neck.
+If Begley uses a cure light wounds spell, the barbarian is saved and does not bleed to death.
+However, Hlutwulfs Strength is reduced to 3 due to loss of blood.
+He is unable to fight or defend himself and even needs assistance to walk.
+Once downstairs in the main hall, Hlutwulf regains enough strength to tell the story of the battle.
+The barbarian whispers in a dry voice, “As we turned  into the hallway, the creature was there, suddenly coming out of the shadows.
+I raised my war hammer but was clawed in the neck before I could strike.
+The creature was about to claw me again when Drenla stuck it with his dagger, then sprang away to cast a spell.
+The thing was angered at being stuck and charged the mage just as he finished casting the spell.” Hlutwulf insists the mage deliberately used himself as bait to lure the creature into the web.
+' Chief Tonazk has taken a claw wound across the thigh for 6 hp damage.
+He is reduced to half his normal movement rate because of the leg wound.
+After hearing the barbarian’s story, the Orc chieftain looks at the body of the dead mage and says, “Zedek nka lasd, kararka.” If asked, Jacob translates Tonask’s words, both his battle cry upstairs and what he said over the dead mage.
+He explains that Bahgtru is the Orcish god of strength, and the chief asked the deity for strength and vengeance.
+Also, the chief praised Drenla for his last act.
+The sentence is an Orcish eulogy of praise for those who die bravely in battle.
+It means, “You died well, warrior.’ ’ u
+\section*{Night} The fight upstairs has unnerved the fur trappers.
+They are extremely jumpy, starting at the sound of snow sliding off the roof and looking wildly around at the slightest noise.
+Tonask, the barbarians, and the rest of the patrons are huddled together near the fire, comparing notes on what attacked them.
+The patrons are discussing the fight upstairs when Gaylord looks up and asks, “Where are the trappers?" Before the others can get excited, Shagath comes down the stairs and announces, “We’re leaving.
+Terth and Xavick are loading our furs and making ready.
+It’s madness to stay here.” With that, he throws a bundle, containing the three suits of armor borrowed from Jacob, to the floor and asks Jacob for their bill.
+The trapper cannot be persuaded to stay, though he states anyone is welcome to join them if they wish.
+The option is given serious consideration by everyone, even.
+Jacob.
+However, before anyone can announce a decision there, the sound of a great commotion rolls in from the courtyard.
+ As Shagath is counting coins into Jacob’s outstretched hand, the courtyard echoes with the sounds of a man’s shout followed by the scream of a wounded mule.
+Outside, the swirling snow impedes your vision, but you make out a downed man and pack mule on the far side of the well near the smithy.
+There is no sign of the other trapper or mules.
+As you approach, you see it is Terth lying dead in the snow, his head nearly severed.
+A quick inspection of the dead mule reveals two large, deep, jagged claw marks on either side of its neck.
+The other two mules are quickly located; they bolted back to the stable and stand there patiently.
+Everyone is repeatedly shouting, “Xavick!” There is no answer, only the whistling of the wind through the buildings of the compound.
+As the fur trappers stood listening to the others discussing the horrors of the creature attacking the fort, they decided it was time to leave.
+They went upstairs, took off the borrowed armor, and gathered their possessions.
+While Shagath bundled up the armor and paid the bill, Xavick and Terth went to the courtyard to gather their furs and load the pack mules.
+Unfortunately, the slaad was watching from the smithy.
+It charged as the two fur trappers loaded the mules.
+Terth was killed immediately, but Xavick managed to put the mule between himself and the slaad.
+He shouted for help, but the slaad was undeterred.
+It downed the mule with two vicious claw attacks to the animal’s throat.
+The mule screamed, and the slaad went over its fallen body for Xavick.
+It killed Xavick instantly with one bite and carried the body back to the barracks.
+The slaad will remain in the barracks, devouring the remains of Xavick, for 5d10 + 10 minutes before it emerges to hunt again.
+If discovered in the barracks, it fights to the death.
+For this encounter, initiative is rolled normally if the PC enters by either the doorway or the hole in the eastern wall.
+Because the slaad’s attention is currently on its meal, it is surprised on a 1—6 on 1d10 if the PC enters by the trapdoor in \MapText{The Barracks Guard Tower (Area 12)}.
+ Day Four Morning: The young slaad is hiding in the smithy, shreds and pieces of flesh slowly sliding from its body.
+The creature is melting again, but the changes are not as dramatic as its change from baby to young slaad.
+The muscles again move and reshape themselves as the stubby tail is absorbed into the body, and the creature adopts its final adult coloration.
+The residue of this change generates only about 2 lbs.
+of the precious skin and flesh prized by alchemists.
+The DM may again choose the length of time for the change or roll 1d6 for the number of hours needed for the slaad to change from its young form to a full adult.
+If discovered in the smithy, the slaad fights to the death.
+It suffers the same penalties as during its previous change.
+It rolls for attack and damage at 1, and it loses initiative automatically.
+
+From the moment the final transformation begins, the slaad losses all its thieflike abilities.
+It does not gain adult hit points, the ability to gate in other slaadi, implant egg~pellets, or emit its shinning croak until the transformation to adult status is complete.
+However, it does gain the regenerative powers and magic resistance of an adult slaad at the beginning of the transformation.
+If the slaad is able to complete this change, it immediately begins using its adult powers.
+As the snow falls and the wind blows, the slaad attempts to gate in fellow members of its race.
+Once other slaadi appear on the scene, Ja« cob’s Well is in trouble.
+The newly mature slaad and any slaadi gated in attempt to kill or capture anyone remaining in Jacob’s Well.
+Captured individuals are taken to the slaadi home plane of Limbo to serve as slaves, food, and hosts for slaadi eggs.
+Concluding the Adventure If the PC or NPCs kill the slaad, the danger is over and they may sit out the blizzard in the spartan comfort of Jacob’s Well.
+Jacob will grudgingly allow the PC to stay at the trading post for one week free of charge, but the PC must pay for his own meals.
+If the PC defeats or helps defeat the slaad, use a base award of 500 XP.
+In addition, consult Tables 33 and 34 on page 48 of the Dungeon Master’s Guide and award points as applicable.
+At any time he desires, the PC may  abandon the adventure and take his chances in the blizzard.
+Blizzard conditions around Jacob’s Well last for five days before the weather breaks and normal travel is possible.
+The five-day period begins at midnight of the day the PC arrives at the trading post.
+If the PC leaves, continue to use the “Sequence of Events” to determine weather conditions, visibility, and weather-related damage until the PC finds shelter.
+The PC is almost certain to get hopelessly lost in such a storm.
+The actual chance of getting lost is determined by consulting Tables 81 and 82 on page 128 of the DMG.
+Use the entries for “Thick forest” on Table 81 and “Fog or mist” on Table 82.
+The DM can cut movement rates by 75\% or quadruple movement point costs for travel through the storm.
+The rate of movement may also be determined by consulting pages 124 and 125 of the DMG.
+ The slaadi do not attempt to track and capture anyone who has left Jacob’s Well during the storm.
+But there are many other dangerous creatures in the wilderness, and those surviving the blizzard may yet find themselves as an entree on somethings menu.
+Such encounters can be handled using either the Monstrous Compendium’s Subarctic Forest encounter table or an encounter table of the DM’s own design.
+If Begley No—Shoes survives the adventure, give the PC an extra 200 XP for attempting to help Begley return home.
+The PC need not personally deliver Begley to his home, but merely get him to a city or village where he can hire on with a caravan or trading party headed in the direction he wishes to go.
+Jacob will be annoyed at his servants’s departure and, in the future, the PC may not be welcome at the fort.
+
+\textbf{Encounters (2D6)} & \textbf{Roll 2D6} \\
+	2 & Slaad \\
+	3--4 & Common Rats \\
+	5--9 & Guard, NPC, No-Encounter \\
+	10--11 & Giant Rats \\
+	12 & Snow Slide
+
 
 % End document
+\chapter{Dramatis person{\ae}}
+
+\section*{Jacob Nazakak}
+Jacob is half—orc but looks-like a very ugly human male with pallid skin.
+He is dour, rude, and taciturn.
+Jacob’s primary concern is Jacob.
+He has no loyalty to either the human or Orcish side of his heritage.
+Jacob often says, “One gold piece spends like another, no matter whose pocket it’s from.” This means Jacob doesn't care who comes to the fort, so long as the customers mind the rules and have money to spend.
+Jacob is fluent in-many Orcish dialects as well as the Common tongue, and as someone in the trade of serving travellers, he speaks enough dwarven and elven dialects to do business with their native speakers.
+Jacob always carries three blades; two throwing knives and a foot-long dirk for hand-to-hand combat that Jacob keeps sharp enough to skin a tomato.
+However, he is not specialized in any weapon.
+
+In combat, Jacob attempts to use the crossbows under the bar, then his throwing knives, before closing with an opponent with cudgel or dirk.
+Jacob, is suspicious of everyone and everything.
+He suspects all visitors to his establishment - adventurer, fur trader, or wandering Orc - are really after his \MapText{Strongbox (Area 27).}
+"In addition to Jacob, there are currently 10 guests in the main hall.
+ \section*{Guntra and Hlutwulf} These two hulking barbarians came in late last night carrying an ill friend - They do not know what is wrong with their companion.
+He was suddenly stricken while they were fleeing the storm.
+Because their friend was too ill to travel, they came to the fort to sit out the storm and let their companion rest in what comfort the post has to offer.
+The sick barbarian is currently upstairs in one of the \MapText{Guest Rooms (Area 25).}
+The barbarians are silent, suspicious, and ill at ease among so many strangers.
+ \section*{Shagath, Terth, and Xavick} These three human fur trappers have no armor but wear thick fur capes that provide a + 1 to their armor class.
+They arrived early this morning, also fleeing the storm.
+They intend to sit out the blizzard, then continue on their way.
+Their furs, pelts, and hunting gear are locked in one of the \MapText{Storage Rooms (Area 5)}, and their three pack mules are in the stable.
+The trappers are cordial and polite if treated likewise.
+They talk mostly among themselves about for prices at various markets and what they intend to do after they sell their furs.
+ \section*{Gaylord Hightor} Gaylord is a young human ranger who has no permanent home and wanders from forest to forest.
+Gaylord is a calm, competent, and patient hunter.
+He is friendly enough, but like most rangers after years of wandering alone he contributes less to conversations than most, and prefers his own company.
+
+As a ranger, Gaylord has chosen trolls as his enemy species.
+This gives him something in common with Tonazk Troll-killer, the ore chieftain.
+Because of their mutual hatred for trolls, the two have a grudging respect for each other.
+ \section*{Drenla Era} Drenla is an intelligent human mage, but not a particularly competent one.
+He is reckless with his spells, often casting them in environments and situations that could result in danger for those who travel with him.
+Regardless of these shortcomings, Drenla sees himself as quite the wizard-warrior.
+
+Even though he has no talent for the quarterstaff, he carries one because he believes it makes him look wise and wizardly.
+In combat, he fights with the staff without any proficiency; hitting everything but his opponent.
+ \section*{Chief Tonazk Troll-killer} Tonask is a cunning adversary who tends to think more than he talks.
+Unlike many Orcs, he relies as much on his wits as on his sword.
+He does not particularly care for Humans or Halflings, but he does not have any special grudge against them.
+He dislikes elves and detests Dwarves and gnomes.
+He is haughty, arrogant, and self-centered, but he is not stupid.
+Tonazk sees the value of Jacob’s small fort as a place of trade and contact with other races.
+He will not break the peace or allow his bodyguards to break it unless seriously provoked.
+(However, this does not stop him from waylaying or ambushing anyone leaving the fort if they have annoyed him).
+Anyone seeking an audience with the chief must deal with his bodyguards first.
+Unless the chief cuts them short, they demand loudly and in rough Common, “Who dares seek the presence of the mighty chief Tonazk Troll-killer, ruler of the Kagazh clan, leader of the council of the Nine Tribes, and Terror of the Trolls.” The DM may add other importantsounding titles and honorifics if he desires.
+Among other Orcs, the chief may require his bodyguards to recite his titles many times and at almost every meeting as a kind of Orcish one-upmanship.
+However, among the “lowly humans” at Jacob’s Well, his bodyguards give only an initial recitation of his credits; he prefers to be addressed simply as Chief Tonazk thereafter.
+ \section*{Kazickerk and Ax} These two Orcs are the personal bodyguards of Chief Tonazk.
+They do as they are told and are not allowed to get into personal fights without his permission.
+They will cooperate with the PC and the NPCs of Jacob’s Well if commanded to do so by their chief.
+Otherwise, they remain aloof and do not mingle with the other travelers.
+As bodyguards, they must stand or fall by their chieftain.
+If they allow the chief to be killed and they somehow survive, they will be immediately put to death on their return to the tribe.
+They invariably place themselves between the chief and anyone approaching him and go before him into any battle.
+One guard is always outside the chief’s door while Tonaak sleeps.
+The bodyguards are not cowards, but there is no love lost between them and __the chief.
+Tonazk often treats them as mere servants and punishes-them see.
+' verely for small transgressions.
+If the chief is killed or mortally wounded, the bodyguards leave Jacob’s Well'by the fastest possible meansand attempt to __ put as much distance as possible be tween themselves and their tribe.
+
 \end{document}
